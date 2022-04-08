@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 02</title>
+    <style>
+        button {
+            padding: 20px 40px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo</h1>
+
+    <button onclick="AeS()">Introdução</button>
+
+    <script>
+        function AeS() {
+            var num = window.prompt('Digite um número inteiro qualquer');
+            Number.parseInt(num);
+            window.alert(`Antes de ${num}, temos o número ${--num}. \r\n Depois de ${++num}, temos o número ${++num}.`);
+        }
+    </script>
+</body>
+</html>
