@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 02</title>
+    <style>
+        button {
+            padding: 20px 40px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo</h1>
+
+    <button onclick="welcome()">Introdução</button>
+
+    <script>
+        function welcome() {
+            var nome = window.prompt('Por qual nome você gostaria de ser chamado(a)?');
+            var idade = window.prompt(`Prazer, ${nome}. Quantos aninhos?`);
+            window.alert(`${idade} anos? \r\n Era desse perfil que eu precisava, ${nome} \r\n Até mais.`)
+        }
+    </script>
+</body>
+</html>
