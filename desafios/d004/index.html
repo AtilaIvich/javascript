@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="" type="image/x-icon">
+        <title>Desafio 04</title>
+        <style>
+            h1 {
+                border-bottom: 1px solid rgb(197, 197, 197);
+                width: 320px;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            button {
+                padding: 10px 20px;
+                box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.541);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Calculadora de Troco</h1>
+        <button onclick="troco()">Finalizar compra</button>
+
+        <script type="text/javascript">
+            function troco() {
+                var produto = prompt('Qual produto você está comprando?');
+
+                var cobrado = prompt(`Quanto custa o produto ${produto} que você escolheu?`);
+                cobrado = Number(cobrado);
+
+                var recebido = prompt(`Qual valor foi entregue para pagar o produto ${produto}?`);
+                recebido = Number(recebido);
+
+                var troco = recebido - cobrado;
+
+                cobrado = cobrado.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+                recebido = recebido.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+                troco = troco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+
+                alert(`Você comprou o produto ${produto} que custa ${cobrado}. \r\n Entregou ${recebido} em dinheiro e vai receber ${troco} de troco. \r\n Volte sempre!`);
+            }
+        </script>
+    </body>
+</html>
