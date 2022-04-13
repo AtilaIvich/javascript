@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Identificador de gringos</title>
+    </head>
+    <body>
+        <h1>De que país você é?</h1>
+        <label for="nacionalidade">País:</label><input type="text" id="nacionalidade" name="nacionalidade"> <input type="submit" id="submit" value="enviar"> <input type="submit" id="reset" value="resetar">
+        <div id="pais"></div>
+        <div id="res"></div>
+
+        <script>
+            var nacionalidade = document.querySelector('#nacionalidade');
+            var submit = document.querySelector('#submit');
+            var reset = document.querySelector('#reset');
+            var res = document.querySelector('#res');
+
+            submit.addEventListener('click', enviar);
+            reset.addEventListener('click', resetar);
+
+            function enviar() {
+                nacionalidade = nacionalidade.value.toLowerCase();
+
+                if (nacionalidade == 'brasil') {
+                    res.innerText = 'Você é brasileiro!!';
+                }
+                else {
+                    res.innerText = 'Você é gringo.'
+                }
+            }
+
+            function resetar() {
+                nacionalidade.value = ' ';
+                res.innerText = ' ';
+            }
+        </script>
+    </body>
+</html>
