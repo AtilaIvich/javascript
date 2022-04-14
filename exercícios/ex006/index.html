@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="" type="image/x-icon">
+        <title></title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Hora do Dia</h1>
+        <section>
+            <p id="txthora"></p>
+            <div id="container"></div>
+        </section>
+        <p><em>© CursoemVídeo</em></p>
+        <script>
+            var txthora = document.getElementById('txthora');
+            var img = document.getElementById('container').style;
+            var bg = document.body.style;
+            var hora = new Date().getHours();
+
+            hora = 1;
+
+            txthora.innerText = `Agora são ${hora} hora/s.`
+
+            if (hora >= 6 && hora < 13) {
+                bg.backgroundColor = '#CCBC90';
+                img.backgroundImage = "url('imagens/manhã.jpg')";
+            } else if (hora >= 13 && hora < 18) {
+                bg.backgroundColor = '#A37561';
+                img.backgroundImage = "url('imagens/tarde.jpg')";
+            } else if (hora >= 18 && hora < 24) {
+                bg.backgroundColor = '#464847';
+                img.backgroundImage = "url('imagens/noite.jpg')"
+            } else if (hora = 24 || hora < 6) {
+                bg.backgroundColor = '#201010';
+                img.backgroundImage = "url('imagens/madrugada.jpg')"
+            }
+        </script>
+    </body>
+</html>
