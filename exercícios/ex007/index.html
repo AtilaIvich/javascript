@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="" type="image/x-icon">
+        <title></title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Verificador de Idade</h1>
+        <section>
+            <label for="nascimento">Ano de Nascimento: </label><input type="number" name="nascimento" id="nascimento"> <br>
+            
+            <label for="sexo">Sexo: </label> 
+            <input type="radio" name="sexo" value="Masculino" id="masculino"> Masculino 
+            <input type="radio" name="sexo" value="Feminino" id="feminino"> Feminino <br>
+
+            <input type="submit" value="Verificar" id="submit" onclick="verify()">
+
+            <p id="sexage"></p>
+            <div id="container"></div>
+        </section>
+        <p><em>© CursoemVídeo</em></p>
+        <script>
+            var idade = document.getElementById('nascimento');
+            idade = Number(idade.value);
+            var res = document.getElementById('sexage');
+            var img = document.getElementById('container').style;
+
+            function verify() {
+                res.innerText = `Detectamos ... com ${idade} anos.`;
+                if (idade <= 3) {
+                    img.backgroundImage = "url('imagens/mbebê.jpg')";
+                } else if (idade <= 13) {
+                    img.backgroundImage = "url('imagens/mcriança.jpg')";
+                } else if (idade <= 19) {
+                    img.backgroundImage = "url('imagens/madolescente.jpg')";
+                } else if (idade <= 59) {
+                    img.backgroundImage = "url('imagens/madulto.jpg')";
+                } else {
+                    img.backgroundImage = "url('imagens/midoso.jpg')";
+                }
+                
+                idade = ' ';
+            }
+
+        </script>
+    </body>
+</html>
