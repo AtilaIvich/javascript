@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Conversor de Medidas</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            input {
+                padding: 20px 30px;
+                border-radius: 0px;
+                border: 2px solid #c6c6ce;
+                font-size: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Conversor de Medidas</h1>
+        <input type="submit" value="Converter" id="botao">
+        <p>Clique no botão acima para iniciar.</p>
+        <script>
+            var button = document.getElementById('botao');
+            var txt = document.getElementsByTagName('p')[0];
+
+            button.addEventListener('click', clicar);
+
+            function clicar() {
+                var dist = prompt('Digite uma distância em metros (m)');
+                dist = Number(dist);
+                if (isNaN(dist)) {
+                    alert('Digite um valor numérico e tente novamente (use pontos no lugar de vírgulas).');
+                    clicar();
+                } else {
+                    var Km = dist / 1000;
+                    var Hm = dist / 100;
+                    var Dam = dist / 10;
+                    var dm = dist * 10;
+                    var cm = dist * 100;
+                    var mm = dist * 1000;
+
+                    txt.innerHTML = `<h2>A distância de ${dist} metros corresponde a...</h2>
+                    <p>${Km} quilomêtros (Km)</p>
+                    <p>${Hm} hectômetros (Hm)</p>
+                    <p>${Dam} decâmtros (Dam)</p>
+                    <p>${dm} decímetros (dm)</p>
+                    <p>${cm} centímetros (cm)</p>
+                    <p>${mm} milímetros (mm)</p>` 
+                }
+            }
+        </script>
+    </body>
+</html>
