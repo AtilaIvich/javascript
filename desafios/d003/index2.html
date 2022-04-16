@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <style>
+            input {
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Antes e Depois</h1>
+        <input type="submit" onclick="botao()" value="Antecessor e Sucessor">
+        <script>
+            function botao() {
+                var num = prompt('Digite um número inteiro');
+                if (isNaN(num)) {
+                    alert('Pedi um número. Tente novamente');
+                    botao();
+                } else {
+                    num = Number.parseInt(num);
+                    var num2 = num + 1;
+                    var num3 = num - 1;
+                    alert(`Antes de ${num}, temos o número ${num3}. \r\n Depois de ${num}, temos o número ${num2}.`)
+                }
+            }
+        </script>
+    </body>
+</html>
