@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Conversor de Medidas</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            input {
+                padding: 20px 30px;
+                border-radius: 0px;
+                border: 2px solid #c6c6ce;
+                font-size: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Conversor de Medidas</h1>
+        <input type="submit" value="Converter" id="botao">
+        <p>Clique no botão acima para iniciar.</p>
+        <script>
+            var button = document.getElementById('botao');
+            var txt = document.getElementsByTagName('p')[0];
+
+            button.addEventListener('click', clicar);
+
+            function clicar() {
+                var tempC = prompt('Digite uma temperatura em °C (Celsius)');
+                tempC = Number(tempC);
+                if (isNaN(tempC)) {
+                    alert('Digite um valor numérico e tente novamente (use pontos no lugar de vírgulas).');
+                    clicar();
+                } else {
+                    tempK = tempC + 273,15;
+                    tempF = (tempC * (9 / 5)) + 32;
+
+                    txt.innerHTML = `<h2>A temperatura de ${tempC}°C corresponde a...</h2>
+                    <p>${tempK}°K (Kelvin)</p>
+                    <p>${tempF}°F (Fahrenheit)</p>`
+                }
+            }
+        </script>
+    </body>
+</html>
