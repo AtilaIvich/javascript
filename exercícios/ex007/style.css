@@ -12,6 +12,10 @@ head, script {
     display: none;
 }
 
+body {
+    background-color: #3A81D0;
+}
+
 h1, em {
     width: 100vw;
     text-align: center;
@@ -20,10 +24,7 @@ h1, em {
 }
 
 section {
-    min-width: 300px;
-    min-height: 300px;
-    max-width: 700px;
-    max-height: 700px;
+    min-width: 320px;
     width: 60vw;
     height: auto;
     margin: auto;
@@ -46,12 +47,13 @@ input {
 
 #sexage {
     width: 100%;
-    text-align: center;
+    text-align: left;
     color: black;
 
 }
 
 #container {
+    display: none;
     margin: auto;
     min-width: 200px;
     min-height: 200px;
