@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Desafio 07</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            input {
+                padding: 20px 30px;
+                border-radius: 0px;
+                border: 1.5px solid rgb(202, 202, 202);
+                font-size: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Conversor R$ ➝ US$</h1>
+        <input type="submit" value="Converter" id="botao">
+        <p>Clique no botão para iniciar.</p>
+        <script>
+            var button = document.getElementById('botao');
+            var txt = document.getElementsByTagName('p')[0];
+            button.addEventListener('click', convert);
+
+            var dolar = prompt('Antes de mais nada, qual é a cotação do dólar agora?');
+            while (isNaN(dolar)) {
+                alert('Insira um valor numérico e substitua vírgulas por pontos.');
+                dolar = prompt('Antes de mais nada, qual é a cotação do dólar agora?');
+            }
+
+            function convert() {
+                var real = prompt('Quantos R$ você tem na carteira?');
+                if (isNaN(real)) {
+                    alert('Insira um valor numérico e substitua vírgulas por pontos.');
+                    convert();
+                } else {
+                    var convertido = real / dolar;
+                    real = Number(real);
+                    txt.innerText = `Seus ${real.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} podem ser convertidos em US$ ${convertido}.`;
+                }
+            }
+            
+        </script>
+    </body>
+</html>
