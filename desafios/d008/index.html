@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Desafio 08</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            input {
+                padding: 20px 30px;
+                border-radius: 0px;
+                border: 2px solid #c6c6ce;
+                font-size: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Calcular Desconto</h1>
+        <input type="submit" value="Desconto de 10%" id="botao">
+        <section><p>Clique no botão acima para iniciar.</p></section>
+        <script>
+            var button = document.getElementById('botao');
+            var txt = document.getElementsByTagName('section')[0];
+
+            button.addEventListener('click', clicar);
+
+            function clicar() {
+                var produto = prompt('Qual é o produto que você está comprando?');
+                var preço = prompt(`Qual é o preço do produto ${produto}?`);
+                while (isNaN(preço)) {
+                    alert('Digite um preço em valores numéricos e substitua vírgulas por pontos.');
+                    preço = prompt(`Qual é o preço do produto ${produto}?`);
+                }
+
+                preço = Number(preço);
+                var desconto = preço / 10;
+                var descontado = preço - desconto;
+
+                desconto = Number(desconto);
+                descontado = Number(descontado);
+
+                preço = preço.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+                desconto = desconto.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+                descontado = descontado.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+                
+                txt.innerHTML = `<h2>Calculando 10% de desconto para ${produto}</h2>
+                <p>O preço original era de ${preço}.</p>
+                <p>Você acaba de ganhar ${desconto} de desconto (-10%).</p>
+                <p>No fim, você vai pagar ${descontado} no produto ${produto}.</p>`
+            }
+        </script>
+    </body>
+</html>
