@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            input {
+                padding: 20px 30px;
+                border-radius: 0px;
+                border: 1px solid rgb(182, 182, 182);
+                font-size: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Calculadora de Bhaskara</h1>
+        <input type="submit" value="Calcular" id="botao">
+        <section>
+            <p>Considerando uma equação do modelo <strong>ax² + bx + c = 0</strong>, será calculado o valor de x ao clicar no botão acima.</p>
+        </section>
+        <script>
+            var txt = document.getElementsByTagName('section')[0];
+            var button = document.getElementById('botao');
+
+            button.addEventListener('click', calcular);
+
+            function calcular() {
+                var a = prompt('Qual é o valor de a na sua equacão?');
+                while (isNaN(a)) {
+                    alert('Você deve digitar um valor numérico e sem letras ou caracteres especiais.');
+                    a = prompt('Qual é o valor de a na sua equacão?');
+                }
+
+                var b = prompt('Qual é o valor de b na sua equacão?');
+                while (isNaN(b)) {
+                    alert('Você deve digitar um valor numérico e sem letras ou caracteres especiais.');
+                    b = prompt('Qual é o valor de b na sua equacão?');
+                }
+
+                var c = prompt('Qual é o valor de c na sua equacão?');
+                while (isNaN(c)) {
+                    alert('Você deve digitar um valor numérico e sem letras ou caracteres especiais.');
+                    c = prompt('Qual é o valor de c na sua equacão?');
+                }
+
+                var n1;
+                var x1;
+                var x2;
+                var delta = (b) * (b) - 4 * a * c;
+                var raiz = Math.sqrt(delta);
+
+                if (Number.isInteger(raiz)) {
+                    x1 = (- (b) + raiz) / (2 * (a));
+                    x2 = (- (b) - raiz) / (2 * (a));
+                }
+                else if (delta < 0) {
+                    x1 = 'Delta possui valor negativo, logo não temos raízes reais.'
+                    x2 = 'Delta possui valor negativo, logo não temos raízes reais.'
+                }
+                else if (delta == 0) {
+                    x1 = (- b) / (2 * a);
+                    x2 = (- b) / (2 * a);
+                }
+                else if (Number.isInteger(delta / 900) && delta % 900 == 0) {
+                    n1 = 30;
+                    raiz = `${n1}√${delta / 900}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 900}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 841) && delta % 841 == 0) {
+                    n1 = 29;
+                    raiz = `${n1}√${delta / 841}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 841}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 784) && delta % 784 == 0) {
+                    n1 = 28;
+                    raiz = `${n1}√${delta / 784}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 784}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 729) && delta % 729 == 0) {
+                    n1 = 27;
+                    raiz = `${n1}√${delta / 729}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 729}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 676) && delta % 676 == 0) {
+                    n1 = 26;
+                    raiz = `${n1}√${delta / 676}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 676}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 625) && delta % 625 == 0) {
+                    n1 = 25;
+                    raiz = `${n1}√${delta / 625}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 625}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 576) && delta % 576 == 0) {
+                    n1 = 24;
+                    raiz = `${n1}√${delta / 576}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 576}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 529) && delta % 529 == 0) {
+                    n1 = 23;
+                    raiz = `${n1}√${delta / 529}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 529}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 484) && delta % 484 == 0) {
+                    n1 = 22;
+                    raiz = `${n1}√${delta / 484}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 484}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 441) && delta % 441 == 0) {
+                    n1 = 21;
+                    raiz = `${n1}√${delta / 441}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 441}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 400) && delta % 400 == 0) {
+                    n1 = 20;
+                    raiz = `${n1}√${delta / 400}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 400}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 361) && delta % 361 == 0) {
+                    n1 = 19;
+                    raiz = `${n1}√${delta / 361}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 361}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 324) && delta % 324 == 0) {
+                    n1 = 18;
+                    raiz = `${n1}√${delta / 324}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 324}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 289) && delta % 289 == 0) {
+                    n1 = 17;
+                    raiz = `${n1}√${delta / 289}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 289}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 256) && delta % 256 == 0) {
+                    n1 = 16;
+                    raiz = `${n1}√${delta / 256}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 256}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 225) && delta % 225 == 0) {
+                    n1 = 15;
+                    raiz = `${n1}√${delta / 225}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 225}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 196) && delta % 196 == 0) {
+                    n1 = 14;
+                    raiz = `${n1}√${delta / 196}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 196}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 169) && delta % 169 == 0) {
+                    n1 = 13;
+                    raiz = `${n1}√${delta / 169}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 169}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 144) && delta % 144 == 0) {
+                    n1 = 12;
+                    raiz = `${n1}√${delta / 144}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 144}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 121) && delta % 121 == 0) {
+                    n1 = 11;
+                    raiz = `${n1}√${delta / 121}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 121}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 100) && delta % 100 == 0) {
+                    n1 = 10;
+                    raiz = `${n1}√${delta / 100}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 100}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 81) && delta % 81 == 0) {
+                    n1 = 9;
+                    raiz = `${n1}√${delta / 81}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 81}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 64) && delta % 64 == 0) {
+                    n1 = 8;
+                    raiz = `${n1}√${delta / 64}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 64}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 49) && delta % 49 == 0) {
+                    n1 = 7;
+                    raiz = `${n1}√${delta / 49}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 49}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 36) && delta % 36 == 0) {
+                    n1 = 6;
+                    raiz = `${n1}√${delta / 36}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 36}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 25) && delta % 25 == 0) {
+                    n1 = 5;
+                    raiz = `${n1}√${delta / 25}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 25}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 16) && delta % 16 == 0) {
+                    n1 = 4;
+                    raiz = `${n1}√${delta / 16}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 16}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 9) && delta % 9 == 0) {
+                    n1 = 3;
+                    raiz = `${n1}√${delta / 9}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 9}`
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else if (Number.isInteger(delta / 4) && delta % 4 == 0) {
+                    n1 = 2;
+                    raiz = `${n1}√${delta / 4}`;
+                    if (Number.isInteger(n1 / (2 * a))) {
+                        raiz = `${((n1) / (2 * a))}√${delta / 4}`;
+                        if ((n1) / (2 * a)) {
+                            raiz = `√${delta / 4}`;
+                        }
+                    }
+                    x1 = (- b) / (2 * a);
+                    x1 += ` + ${raiz}`;
+                    x2 = (- b) / (2 * a);
+                    x2 += ` - ${raiz}`;
+                }
+                else {
+                    x1 = (- b) / (2 * (a));
+                    x1 += ` + (√${delta} / ${(2 * (a))})`;
+                    x2 = (- b) / (2 * (a));
+                    x2 += ` - (√${delta} / ${(2 * (a))})`;
+                }
+
+                
+                if (a > 0 && b > 0 && c > 0) { //a
+                    txt.innerHTML = `<h2>Equação de Bhaskara Resolvida</h2>
+                    <p>A equação atual é ${a}x² + ${b}x + ${c} = 0.`
+                }
+                
+                if (a > 0 && b < 0 && c < 0) { //b
+                    txt.innerHTML = `<h2>Equação de Bhaskara Resolvida</h2>
+                    <p>A equação atual é ${a}x² ${b}x ${c} = 0.`
+                }
+
+                if (a > 0 && b > 0 && c < 0) { //c
+                    txt.innerHTML = `<h2>Equação de Bhaskara Resolvida</h2>
+                    <p>A equação atual é ${a}x² + ${b}x ${c} = 0.`
+                }
+
+                if (a > 0 && b < 0 && c > 0) { //d
+                    txt.innerHTML = `<h2>Equação de Bhaskara Resolvida</h2>
+                    <p>A equação atual é ${a}x² ${b}x + ${c} = 0.`
+                }
+
+                if (a < 0 && b > 0 && c > 0) { //e
+                    txt.innerHTML = `<h2>Equação de Bhaskara Resolvida</h2>
+                    <p>A equação atual é - ${a}x² + ${b}x + ${c} = 0.`
+                }
+
+                if (a < 0 && b < 0 && c < 0) { //f
+                    txt.innerHTML = `<h2>Equação de Bhaskara Resolvida</h2>
+                    <p>A equação atual é - ${a}x² ${b}x ${c} = 0.`
+                }
+
+                if (a < 0 && b > 0 && c < 0) { //g
+                    txt.innerHTML = `<h2>Equação de Bhaskara Resolvida</h2>
+                    <p>A equação atual é - ${a}x² + ${b}x ${c} = 0.`
+                }
+
+                if (a < 0 && b < 0 && c > 0) { //h
+                    txt.innerHTML = `<h2>Equação de Bhaskara Resolvida</h2>
+                    <p>A equação atual é - ${a}x² ${b}x + ${c} = 0.`
+                }
+
+
+                if (a < 0) {
+                    a = `(${a})`
+                }
+
+                if (b < 0) {
+                    b = `(${b})`;
+                }
+
+                if (c < 0) {
+                    c = `(${c})`;
+                }
+
+                txt.innerHTML += `<p>O cálculo realizado para o valor de Δ será o seguinte: ${b}² - 4.${a}.${c}</p>
+                <p><strong>
+                    Δ = ${delta}
+                </strong></p>
+                <p><strong>
+                    x1 = ${x1}
+                </strong></p>
+                <p><strong>
+                    x2 = ${x2}
+                </strong></p>`;
+            }
+        </script>
+    </body>
+</html>
