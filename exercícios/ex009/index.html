@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contador</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Vamos Contar</h1>
+        </header>
+        <section>
+            <div>
+                <label for="inicio">Início: </label><input type="number" name="inicio" id="n1"> <br>
+                <label for="fim">Fim: </label><input type="number" name="fim" id="n2"> <br>
+                <label for="passo">Passo: </label><input type="number" name="passo" id="passo"> <br>
+                <input type="submit" value="Contar" id="botao" onclick="count()">
+            </div>
+            <div>
+                <p id="txt">Preparando a contagem...</p>
+            </div>
+        </section>
+        <footer>
+            <p><em>&copy; CursoemVídeo + ÁtilaIvich</em></p>
+        </footer>
+        <script>
+            var button = document.getElementById('botao');
+            var vtxt = document.getElementById('txt');
+
+            function count() {
+                vn1 = document.getElementById('n1');
+                vn1 = Number.parseInt(vn1.value);
+
+                vn2 = document.getElementById('n2');
+                vn2 = Number.parseInt(vn2.value);
+
+                vpasso = document.getElementById('passo');
+                vpasso = Number.parseInt(vpasso.value);
+
+                if (isNaN(vn1) || isNaN(vn2) || vn1 == vn2 || isNaN(vpasso) || vpasso == 0) {
+                    vtxt.innerHTML = 'Não é possível contar nestas condições :l siga as seguintes instruções:<br><br>* Valores de início, fim e passo devem ser valores numéricos<br>* O valor de passo deve ser diferente de zero<br>* Não é permitido que os valores de início e de fim sejam iguais';
+                } 
+                else if (vpasso < 0 && vn1 <= vn2) {
+                    alert('Esta contagem de passo só é válida para valor de início > valor de fim. Vamos considerar o passo como 1.');
+                    vpasso = 1;
+                    vtxt.innerHTML = 'Contando: \r\n';
+                    for (vn1; vn1 <= vn2; vn1 += vpasso) {
+                        vtxt.innerHTML += ` ${vn1} &#x1F449;`;
+                    }
+                    if (vn1 >= vn2) {
+                        vtxt.innerHTML += ' &#x1F3C1;';
+                    }
+                }
+                else if (vpasso > 0 && vn1 >= vn2) {
+                    alert('Esta contagem de passo só é válida para valor de início < valor de fim. Vamos considerar o passo como -1.');
+                    vpasso = -1;
+                    vtxt.innerHTML = 'Contando: \r\n';
+                    for (vn1; vn1 >= vn2; vn1 += vpasso) {
+                        vtxt.innerHTML += ` ${vn1} &#x1F449;`;
+                    }
+                    if (vn1 <= vn2) {
+                        vtxt.innerHTML += ' &#x1F3C1;';
+                    }
+                }
+                else if (vpasso < 0 && vn1 >= vn2) {
+                    vtxt.innerHTML = 'Contando: \r\n';
+                    for (vn1; vn1 >= vn2; vn1 += vpasso) {
+                        vtxt.innerHTML += ` ${vn1} &#x1F449;`;
+                    }
+                    if (vn1 <= vn2) {
+                        vtxt.innerHTML += ' &#x1F3C1;';
+                    }
+                }
+                else {
+                    vtxt.innerHTML = 'Contando: \r\n';
+                    for (vn1; vn1 <= vn2; vn1 += vpasso) {
+                        vtxt.innerHTML += ` ${vn1} &#x1F449;`
+                    }
+                    if (n1 >= n2) {
+                            vtxt.innerHTML += ' &#x1F3C1;';
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
