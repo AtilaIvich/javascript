@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 16</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            font-size: 1em;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculando a idade</h1>
+    <input type="button" value="Iniciar" onclick="verify()">
+    <section id="txt">
+        <p>O resultado vai aparecer aqui...</p>
+    </section>
+    <script>
+        var txt = document.getElementById('txt');
+
+        function verify() {
+            var anoAtual = new Date().getFullYear();
+            anoAtual = Number(anoAtual);
+
+            var anoNasc = prompt('Você nasceu em que ano?');
+            anoNasc = Number(anoNasc);
+            while (isNaN(anoNasc) || anoNasc > anoAtual) {
+                alert('Você deve digitar um valor numérico e o valor numérico deve ser menor do que o ano atual.');
+                anoNasc = prompt('Você nasceu em que ano?');
+            }
+
+            var idade = anoAtual - anoNasc;
+
+            txt.innerHTML = `<p>Quem nasceu em <strong>${anoNasc}</strong> vai completar <strong>${idade}</strong> ano/s em <strong>${anoAtual}</strong>.</p>`
+        }
+    </script>
+</body>
+</html>

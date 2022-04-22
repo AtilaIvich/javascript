@@ -17,12 +17,19 @@
     </style>
 </head>
 <body>
-    <h1>Maior valor</h1>
+    <h1>Interagindo com o sistema</h1>
     <input type="button" value="Clique para iniciar" onclick="verify()">
     <section id="txt">
         <p>O resultado vai aparecer aqui...</p>
     </section>
     <script>
+        var txt = document.getElementById('txt');
+
+        function verify() {
+            var momento = new Date();
+
+            txt.innerHTML = `<p>A informação adquirida diretamente do seu sistema foi <mark>${momento}</mark></p>`
+        }
     </script>
 </body>
 </html>
