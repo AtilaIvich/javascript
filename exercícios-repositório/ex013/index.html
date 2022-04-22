@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 13</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            font-size: 1em;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Maior valor</h1>
+    <input type="button" value="Clique para iniciar" onclick="verify()">
+    <section id="txt">
+        <p>O resultado vai aparecer aqui...</p>
+    </section>
+    <script>
+        var txt = document.getElementById('txt');
+
+        function verify() {
+            var n1 = prompt('Escolha um número');
+            while (isNaN(n1)) {
+                alert('Você deve escolher um valor numérico e sem outros caracteres acompanhando o número');
+                n1 = prompt('Escolha um número');
+            }
+            n1 = Number(n1);
+
+            var n2 = prompt('Escolha mais um número');
+            while (isNaN(n2)) {
+                alert('Você deve escolher um valor numérico e sem outros caracteres acompanhando o número');
+                n2 = prompt('Escolha mais um número');
+            }
+            n2 = Number(n2);
+
+            if (n1 > n2) {
+                txt.innerHTML = `<p>O valor <strong>${n1}</strong> é maior do que o valor <strong>${n2}</strong></p>`;
+            } else if (n2 > n1) {
+                txt.innerHTML = `<p>O valor <strong>${n2}</strong> é maior do que o valor <strong>${n1}</strong></p>`;
+            } else {
+                txt.innerHTML = `<p>Os valores <strong>${n1}</strong> e <strong>${n2}</strong> são iguais</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
