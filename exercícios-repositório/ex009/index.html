@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 09</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            h1 {
+                font-family: monospace;
+            }
+
+            input {
+                padding: 30px;
+                font-size: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Contador de Cliques</h1>
+        <input type="submit" value="Clique em mim" onclick="count()">
+        <input type="submit" value="Zerar o contador" onclick="reset()">
+        <p id="txt"></p>
+        <script>
+            var click = 0;
+            var txt = document.getElementById('txt');
+            txt.innerHTML = `O contador está com <mark>${click}</mark> clicks.`
+
+            function count() {
+                click++;
+                txt.innerHTML = `O contador está com <mark>${click}</mark> clicks.`
+            }
+
+            function reset() {
+                click = 0;
+                txt.innerHTML = `O contador está com <mark>${click}</mark> clicks.`
+            }
+        </script>
+    </body>
+</html>

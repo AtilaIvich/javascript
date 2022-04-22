@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 07</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            input {
+                padding: 20px;
+                font-size: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Média do Aluno v1.0</h1>
+        <input type="button" value="Calcular média" onclick="calcular()">
+        <p id="txt">O resultado vai aparecer aqui...</p>
+        <script>
+            var txt = document.getElementById('txt');
+
+            function calcular() {
+                var name = prompt('Qual é o nome do aluno?');
+                var n1 = prompt(`Qual foi a primeira nota de ${name}?`);
+                n1 = Number(n1);
+                if (isNaN(n1)) {
+                    alert('O valor digitado não é um número. Tente novamente');
+                    n1 = prompt(`Qual foi a primeira nota de ${name}?`);
+                }
+                var n2 = prompt(`Além de ${n1}, qual foi a outra nota de ${name}?`);
+                n2 = Number(n2);
+                if (isNaN(n2)) {
+                    alert('O valor digitado não é um número. Tente novamente');
+                    n2 = prompt(`Além de ${n1}, qual foi a outra nota de ${name}?`)
+                }
+
+                txt.innerHTML = `<p>Calculando a média final de <mark>${name}</mark>.</p>
+                <p>As notas obtidas foram <mark>${n1} e ${n2}</mark>.</p>
+                <p>A média final será de <mark>${(n1 + n2) / 2}</mark>.</p>`
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Tabuada</h1>
+        </header>
+        <section>
+            <div>
+                <label for="num">Número: </label><input type="number" name="num" id="num"> <input type="submit" value="Gerar Tabuada" id="botao">
+            </div>
+            <div id="tabuada">
+                <p>Digite um número acima.</p>
+            </div>
+        </section>
+        <footer>
+            <p><em>&copy; CursoemVídeo</em></p>
+        </footer>
+        <script>
+            var button = document.getElementById('botao');
+            button.addEventListener('click', clicar);
+
+            function clicar() {
+                var num = document.getElementById('num');
+                num = Number(num.value);
+            }
+        </script>
+    </body>
+</html>

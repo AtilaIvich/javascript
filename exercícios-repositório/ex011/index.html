@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            font-size: 1em;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Média do Aluno v2.0</h1>
+    <input type="button" value="Calcular Média" onclick="calcular()">
+    <section id="txt">
+        <p>O resultado vai aparecer aqui...</p>
+    </section>
+    <script>
+        var txt = document.getElementById('txt');
+
+        function calcular() {
+            var name = prompt('Qual é o seu nome? (Estamos supondo que você é quem terá a média calculada)');
+            var n1 = prompt(`Qual foi sua primeira nota, ${name}?`);
+            while (isNaN(n1)) {
+                alert('Você deve inserir um valor numérico');
+                n1 = prompt(`Qual foi sua primeira nota, ${name}?`);
+            }
+            n1 = Number(n1);
+
+            var n2 = prompt(`E qual foi a segunda nota?`);
+            while (isNaN(n2)) {
+                alert('Você deve inserir um valor numérico');
+                n2 = prompt(`E qual foi a segunda nota?`);
+            }
+            n2 = Number(n2);
+
+            var média = (n1 + n2) / 2;
+
+            txt.innerHTML = `<p>Calculando a média final de <em>${name}</em></p>
+            <p>As notas obtidas foram <strong>${n1}</strong> e <strong>${n2}</strong></p>
+            <p>A média final será <strong>${média}</strong></p>`;
+
+            if (média < 6) {
+                txt.innerHTML += `<p>O sr(a) pode se esforçar para aumentar um pouco a nota. A forma como você vai se sentir depois do esforço vai fazer valer a pena.</p>`
+            } else {
+                txt.innerHTML += `<p>Espero que continue com o bom trabalho.</p>`
+            }
+        }
+
+    </script>
+</body>
+</html>

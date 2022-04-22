@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 05</title>
+    <style>
+        body {
+            font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+        }
+
+        input {
+            padding: 40px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trabalhando com números</h1>
+    <input type="button" value="Clique para calcular" onclick="clicar()">
+    <p id="txt">O resultado vem aqui...</p>
+    <script>
+        alert('Seja bem-vindo(a) ao meu site!');
+
+        var txt = document.getElementById('txt');
+
+        function clicar() {
+            var n1 = prompt('Digite um número');
+            if (isNaN(n1)) {
+                alert('Isso não é um número');
+                clicar();
+            }
+            txt.innerText = `O dobro de ${n1} é ${n1 * 2} e a metade é ${n1 / 2}!`
+        }
+    </script>
+</body>
+</html>
