@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="" type="image/x-icon">
+        <title>Desafio 11</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Ano Bissexto</h1>
+        <p>Aqui você descobrirá se um ano é bissexto ou não.</p>
+
+        <section>
+            <input type="button" value="Verificar" id="button">
+            <p id="txt"></p>
+        </section>
+
+        <script>
+            var button = document.getElementById('button');
+            button.addEventListener('click', verify);
+
+            var txt = document.getElementById('txt');
+
+            function verify() {
+                var ano = prompt('Você gostaria de saber sobre qual ano?');
+                while (isNaN(ano) || ano == null || ano == '') {
+                    alert('Digite um valor numérico e nada além disso.\r\n Exemplo: 2018');
+                    ano = prompt('Você gostaria de saber sobre qual ano?');
+                }
+
+                if (Number.isInteger(ano / 4) && ano != 0) {
+                    txt.innerHTML = `O ano ${ano} <span id="bissexto">É BISSEXTO</span> <span style="color: transparent; text-shadow: 0px 0px 0px #15C60B;">&#x2714;</span>`;
+                    document.getElementsByTagName('section')[0].style.border = '1px solid rgb(63, 63, 63)';
+                } else {
+                    txt.innerHTML = `O ano ${ano} <span id="n-bissexto">NÃO É BISSEXTO</span> &#x274C;`
+                    document.getElementsByTagName('section')[0].style.border = '1px solid rgb(63, 63, 63)'
+                }
+            }
+        </script>
+    </body>
+</html>

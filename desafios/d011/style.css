@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+p {
+    margin-bottom: 30px;
+}
+
+section {
+    box-sizing: border-box;
+    color: rgb(136, 136, 136);
+    border-radius: 20px;
+    padding: 10px;
+    width: 300px;
+    margin: auto;
+}
+
+input {
+    font-size: 1em;
+    padding: 10px 20px;
+    background-color: black;
+    border: 1px solid rgb(63, 63, 63);
+    border-radius: 5px;
+    color: white;
+}
+
+input:active {
+    font-size: 0.98em;
+    color: rgb(233, 233, 233);
+}
+
+#bissexto {
+    background-color: rgba(20, 198, 11, 0.3);
+    color: rgb(196, 196, 196);
+}
+
+#n-bissexto {
+    background-color: rgba(240, 59, 23, 0.3);
+    color: rgb(196, 196, 196);
+}
