@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
+        <link rel="shortcut icon" href="" type="image/x-icon">
+        <title>Exercício 10 Refeito</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -12,40 +13,36 @@
         </header>
         <section>
             <div>
-                <label for="num">Número: </label><input type="number" name="num" id="num"> <input type="submit" value="Gerar Tabuada" id="botao">
+                <label for="num">Número: </label><input type="number" name="num" id="num"> <input type="submit" value="Gerar Tabuada" id="button">
             </div>
             <div>
-
                 <p>Digite um número acima.</p>
-                <select name="tab" id="tab">
-                    
+                <select id="tabuada">
                 </select>
             </div>
         </section>
         <footer>
             <p><em>&copy; CursoemVídeo</em></p>
         </footer>
+
         <script>
-            var tab = document.getElementById('tab');
+            var button = document.getElementById('button');
+            button.addEventListener('click', start);
 
-            var button = document.getElementById('botao');
-            button.addEventListener('click', clicar);
+            var tab = document.getElementById('tabuada');
 
-            var x = 1;
-
-            function clicar() {
+            function start() {
                 var num = document.getElementById('num');
                 num = Number(num.value);
 
                 tab.innerHTML = '';
+                tab.setAttribute('size', '10');
 
                 for (var c = 1; c <= 10; c++) {
                     var option = document.createElement('option');
                     option.text = `${num} x ${c} = ${num * c}`;
                     tab.appendChild(option);
                 }
-
-                tab.setAttribute('size', '10');
             }
         </script>
     </body>
