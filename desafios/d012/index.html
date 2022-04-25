@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="" type="image/x-icon">
+        <title>Challenge 12</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            input {
+                padding: 20px;
+                font-size: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Price change</h1>
+        <input type="button" value="Verify" id="button">
+        <section id="txt">
+            <p>Click the button above to calculate the value of the price change.</p>
+        </section>
+
+        <script>
+            var button = document.getElementById('button');
+            button.addEventListener('click', calculate);
+
+            var txt = document.getElementById('txt');
+
+            function calculate() {
+                var price1 = prompt('Enter the original price value.');
+                price1 = Number(price1);
+                while (isNaN(price1)) {
+                    alert('You must enter a numeric value and nothing else.');
+                    price1 = prompt('Enter the original price value.');
+                }
+
+                var price2 = prompt('Enter the new price value.');
+                price2 = Number(price2);
+                while (isNaN(price2)) {
+                    alert('You must enter a numeric value and nothing else.');
+                    price2 = prompt('Enter the new price value.');
+                }
+
+                var increase = price2 - price1;
+                var decrease = price1 - price2;
+
+                var increasepercentage = (100 * increase) / price1;
+                if (Number.isInteger(increasepercentage)) {
+                    increasepercentage = String(increasepercentage).replace('-', '');
+                } else {
+                    increasepercentage = increasepercentage.toFixed(2);
+                    increasepercentage = String(increasepercentage).replace('-', '');
+                }
+
+                var decreasepercentage = (100 * decrease) / price1;
+                if (Number.isInteger(decreasepercentage)) {
+                    decreasepercentage = String(decreasepercentage).replace('-', '');
+                } else {
+                    decreasepercentage = decreasepercentage.toFixed(2);
+                    decreasepercentage = String(decreasepercentage).replace('-', '');
+                }
+                
+                var price1RS = price1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+                var price2RS = price2.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+                var increaseRS = increase.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+                var decreaseRS = decrease.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+
+                
+                txt.innerHTML = '';
+                txt.innerHTML = `<p>The product used to cost ${price1RS} and now costs ${price2RS}</p>`
+                if (price1 > price2) {
+                    txt.innerHTML += `<p>The product is cheaper now</p>`;
+                    txt.innerHTML += `<p>The price got ${decreasepercentage}% lower in comparison to the previous price, what represents a value of ${decreaseRS} </p>`;
+                } else if (price1 < price2) {
+                    txt.innerHTML += `<p>The product is more expensive now</p>`;
+                    txt.innerHTML += `<p>The price got ${increasepercentage}% higher in comparison to the previous price, what represents a value of ${increaseRS}</p>`;
+                } else {
+                    txt.innerHTML += `<p>The value has not changed.</p>`;
+                }
+            }
+
+        </script>
+    </body>
+</html>
