@@ -50,7 +50,8 @@
                 var increasepercentage = (100 * increase) / price1;
                 if (Number.isInteger(increasepercentage)) {
                     increasepercentage = String(increasepercentage).replace('-', '');
-                } else {
+                } 
+                else {
                     increasepercentage = increasepercentage.toFixed(2);
                     increasepercentage = String(increasepercentage).replace('-', '');
                 }
@@ -58,7 +59,8 @@
                 var decreasepercentage = (100 * decrease) / price1;
                 if (Number.isInteger(decreasepercentage)) {
                     decreasepercentage = String(decreasepercentage).replace('-', '');
-                } else {
+                } 
+                else {
                     decreasepercentage = decreasepercentage.toFixed(2);
                     decreasepercentage = String(decreasepercentage).replace('-', '');
                 }
@@ -70,14 +72,17 @@
 
                 
                 txt.innerHTML = '';
-                txt.innerHTML = `<p>The product used to cost ${price1RS} and now costs ${price2RS}</p>`
+                txt.innerHTML = `<p>The product used to cost <strong>${price1RS}</strong> and now costs <strong>${price2RS}</strong></p>`
+                
                 if (price1 > price2) {
-                    txt.innerHTML += `<p>The product is cheaper now</p>`;
-                    txt.innerHTML += `<p>The price got ${decreasepercentage}% lower in comparison to the previous price, what represents a value of ${decreaseRS} </p>`;
-                } else if (price1 < price2) {
-                    txt.innerHTML += `<p>The product is more expensive now</p>`;
-                    txt.innerHTML += `<p>The price got ${increasepercentage}% higher in comparison to the previous price, what represents a value of ${increaseRS}</p>`;
-                } else {
+                    txt.innerHTML += `<p>The product is <strong>cheaper</strong> now</p>`;
+                    txt.innerHTML += `<p>The price has become <strong>${decreasepercentage}%</strong> lower compared to the previous price, which represents a value of <strong>${decreaseRS}</strong> </p>`;
+                } 
+                else if (price1 < price2) {
+                    txt.innerHTML += `<p>The product is <strong>more expensive</strong> now</p>`;
+                    txt.innerHTML += `<p>The price has become <strong>${increasepercentage}%</strong> higher compared to the previous price, which represents a value of <strong>${increaseRS}</strong></p>`;
+                } 
+                else {
                     txt.innerHTML += `<p>The value has not changed.</p>`;
                 }
             }
