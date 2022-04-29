@@ -1,5 +1,7 @@
 var numlist = document.getElementById('numlist');
 
+var input = document.getElementById('input');
+
 var txt = document.getElementById('txt');
 
 var button1 = document.getElementById('button1');
@@ -33,7 +35,8 @@ function add() {
         }
     }
 
-    document.getElementById('input').value = '';
+    input.value = '';
+    input.focus();
 }
 
 function finish() {
@@ -51,10 +54,20 @@ function finish() {
         numArrayAverage = numArrayAverage.toFixed(2);
     }
 
-    numArray.sort((a,b) => {return a - b});
+    numArray.sort();
+
+    function bigger(array) {
+        big = array[0];
+        for (i = 1; i < array.length; i++) {
+            if (array[i] > big) {
+                big = array[i];
+            }
+        }
+        return big;
+    }
 
      txt.innerHTML = `<p>Ao todo, temos ${numArray.length} números registrados</p>
-     <p>O maior valor informado foi ${numArray[numArray.length - 1]}</p>
+     <p>O maior valor informado foi ${bigger(numArray)}</p>
      <p>O menor valor informado foi ${numArray[0]}</p>
      <p>Somando todos os valores, temos ${numArraySum}</p>
      <p>A média dos valores digitados é ${numArrayAverage.replace('.', ',')}</p>`;
@@ -63,5 +76,5 @@ function finish() {
 function reset() {
     numlist.innerHTML = '';
     txt.innerHTML = '';
-    document.getElementById('input').value = '';
+    input.value = '';
 }
