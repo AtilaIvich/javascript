@@ -8,20 +8,33 @@ btn2.addEventListener('click', pause);
 square.addEventListener('click', toggle);
 
 var dx = 0;
+//dx == direction x
+//controls the direction of movement on the x-axis of the square element
+
 var dy = 0;
+//dy == direction y
+//controls the direction of movement on the y-axis of the square element
+
 var px = 0;
+//px == position x
+//x-coordinates of the square element
+
 var py = 0;
-var vel = 10;
+//py == position y
+//y-coordinates of the square element
+
+var speed = 10;
 var toggleVar = 0;
+var currentXDirection;
 
 function move() {
-    px += dx * vel;
+    px += dx * speed;
     if (px >= window.innerWidth - 105) {
         dx = -1;
     } else if (px <= 0) {
         dx = 1;
     }
-    py += dy * vel;
+    py += dy * speed;
     square.style.top = py + 'px';
     square.style.left = px + 'px';
     requestAnimationFrame(move);
@@ -30,18 +43,14 @@ function move() {
 function start() {
     if (toggleVar) {
         toggleVar = 0;
-        dx = 1;
-        if (px >= window.innerWidth - 105) {
-            dx = -1;
-        } else if (px <= 0) {
-            dx = 1;
-        }
+        dx = currentXDirection;
     }
 }
 
 function pause() {
     if (toggleVar == 0) {
         toggleVar = 1;
+        currentXDirection = dx;
         dx = 0;
     }
 }
