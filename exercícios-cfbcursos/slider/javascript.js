@@ -11,19 +11,19 @@ btn3.addEventListener('click', () => pickImg(3));
 btn4.addEventListener('click', () => pickImg(4));
 btn5.addEventListener('click', () => pickImg(0));
 
-var interval = setInterval(changeImg, 2000);
 var imgs = [];
-var initialImg = 0;
+var currentImg = 0;
+var interval = setInterval(changeImg, 2000);
 
 for (let i = 0; i < 5; i++) {
     imgs[i] = `imgs/slide${i}.jpg`;
 }
 
 function changeImg() {
-    imgContainer.style.backgroundImage = `url('${imgs[initialImg]}')`;
-    initialImg++;
-    if (initialImg > imgs.length - 1) {
-        initialImg = 0;
+    imgContainer.style.backgroundImage = `url('${imgs[currentImg]}')`;
+    currentImg++;
+    if (currentImg > imgs.length - 1) {
+        currentImg = 0;
     }
 }
 
