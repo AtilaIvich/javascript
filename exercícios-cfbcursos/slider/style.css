@@ -12,8 +12,10 @@ section {
 }
 
 #imgcontainer {
+    position: relative;
+    top: 0;
     width: 90%;
-    min-width: 300px;
+    min-width: 250px;
     max-width: 1000px;
     height: 500px;
     max-height: 70vh;
@@ -24,6 +26,25 @@ section {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+}
+
+#barcontainer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 90%;
+    height: 5px;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+}
+
+#bar {
+    width: 0%;
+    height: 100%;
+    background-color: rgb(255, 255, 255, 0.6);
 }
 
 #btnscontainer {

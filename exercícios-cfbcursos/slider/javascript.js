@@ -1,4 +1,5 @@
 const imgContainer  = document.getElementById('imgcontainer');
+const bar = document.getElementById('bar');
 const btn1 = document.getElementById('btn1');
 const btn2 = document.getElementById('btn2');
 const btn3 = document.getElementById('btn3');
@@ -13,7 +14,8 @@ btn5.addEventListener('click', () => pickImg(0));
 
 var imgs = [];
 var currentImg = 0;
-var interval = setInterval(changeImg, 2000);
+var barInterval = setInterval(refreshBar, 20);
+var barWidth = 0;
 
 for (let i = 0; i < 5; i++) {
     imgs[i] = `imgs/slide${i}.jpg`;
@@ -27,8 +29,18 @@ function changeImg() {
     }
 }
 
+function refreshBar() {
+    barWidth++;
+    if (barWidth == 100) {
+        barWidth = 0;
+        changeImg();
+    }
+    bar.style.width = barWidth + '%';
+}
+
 function pickImg(x) {
     imgContainer.style.backgroundImage = `url('${imgs[x]}')`;
-    clearInterval(interval);
-    interval = setInterval(changeImg, 2000);
+    clearInterval(barInterval);
+    barWidth = 0;
+    barInterval = setInterval(refreshBar, 20);
 }
