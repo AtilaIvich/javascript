@@ -1,7 +1,8 @@
-const output = document.getElementById('output');
-const timeInterval = setInterval(getTime, 250);
+const timeOutput = document.getElementById('timeoutput');
 const btn1 = document.getElementById('btn1');
 const btn2 = document.getElementById('btn2');
+var timeInterval = setInterval(getTime, 250);
+
 btn1.addEventListener('click', start);
 btn2.addEventListener('click', pause);
 
@@ -19,11 +20,12 @@ function getTime() {
         sec = `0${sec}`
     }
 
-    output.innerText = `${h}:${min}:${sec}`;
+    timeOutput.innerText = `${h}:${min}:${sec}`;
 }
 
 function start() {
-    setInterval(getTime, 250);
+    clearInterval(timeInterval);
+    timeInterval = setInterval(getTime, 250);
 }
 
 function pause() {
