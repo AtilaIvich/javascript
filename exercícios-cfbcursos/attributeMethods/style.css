@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.car {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 200px;
+    height: 100px;
+    background-image: url('imgs/car.png');
+    background-position: center center;
+    background-size: cover;
+}
+
+#btnscontainer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    width: fit-content;
+    margin: auto;
+}
+
+.btn {
+    width: fit-content;
+    background-color: #494949;
+    color: #dfdfdf;
+    border: 0px solid white;
+    border-radius: 0;
+    padding: 10px;
+}
+
+.btn:active {
+    background-color: #808080;
+}
