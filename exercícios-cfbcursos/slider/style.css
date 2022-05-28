@@ -1,6 +1,5 @@
 body {
     user-select: none;
-    background-color: white;
 }
 
 section {
@@ -36,15 +35,15 @@ section {
     margin: auto;
     width: 90%;
     height: 5px;
-    background-color: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: rgb(255, 255, 255, 0.3);
+    border: 1px solid rgb(255, 255, 255, 0.6);
     border-radius: 2px;
 }
 
 #bar {
     width: 0%;
     height: 100%;
-    background-color: rgb(255, 255, 255, 0.6);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 #btnscontainer {
@@ -60,7 +59,7 @@ section {
     height: 20px;
     line-height: 100%;
     border-radius: 50%;
-    background-color: #615F5C;
+    background-color: #808080;
 }
 
 .btn:nth-child(1), .btn:nth-child(5) {
@@ -69,5 +68,5 @@ section {
 }
 
 .btn:hover, .btn:active {
-    background-color: gray;
+    background-color: #615F5C;
 }
